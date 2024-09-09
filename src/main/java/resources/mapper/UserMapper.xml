@@ -21,4 +21,5 @@
   <select id="selectUser" resultType="com.mybatis.test.vo.UserVO">
     SELECT * FROM USER_INFO WHERE UI_NUM = #{uiNum}
   </select>
+
 </mapper>

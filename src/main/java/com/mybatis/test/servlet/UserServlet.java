@@ -16,7 +16,7 @@ public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private UserService us = new UserService();
     
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
 		int idx = uri.lastIndexOf("/");
 		String cmd = uri.substring(idx+1);
