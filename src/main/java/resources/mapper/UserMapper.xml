@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- UserMapper.xml -->
+<mapper namespace="UserMapper">
+  <select id="selectUsers" resultType="com.mybatis.test.vo.UserVO">
+    SELECT * FROM USER_INFO
+    <where>
+    	<if test='uiNum!=0'>
+    		AND UI_NUM = #{uiNum}
+    	</if>
+    	<if test='uiName != null and uiName != "" '>
+    		AND UI_NAME = #{uiName}
+    	</if>
+    	<if test='uiId != null and uiId != "" '>
+    		AND UI_ID = #{uiId}
+    	</if>
+    </where>
+  </select>
+  <select id="selectUser" resultType="com.mybatis.test.vo.UserVO">
+    SELECT * FROM USER_INFO WHERE UI_NUM = #{uiNum}
+  </select>
+</mapper>
