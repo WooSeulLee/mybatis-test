@@ -11,7 +11,7 @@
 <%
 CarVO car = (CarVO)request.getAttribute("car");
 %>
-<form method="POST" action="/car/car-update">
+<form method="POST" action="/car/car-update" id="frm">
 	<input type="hidden" name="ciNum" value="<%=car.getCiNum()%>">
 	<table border="1">
 		<tr>
@@ -20,16 +20,22 @@ CarVO car = (CarVO)request.getAttribute("car");
 		</tr>
 		<tr>
 			<th>모델명</th>
-			<td><input type="text" name="ciName" value="<%=car.getCiName() %>"></td>
+			<td><input type="text" name="ciName" value="<%=car.getCiName()%>"></td>
 		</tr>
 		<tr>
 			<th>년식</th>
-			<td><input type="text" name="ciYear" value="<%=car.getCiYear() %>"></td>
+			<td><input type="text" name="ciYear" value="<%=car.getCiYear()%>"></td>
 		</tr>
 		<tr>
-			<th colspan="2"><button>수정</button></th>
+			<th colspan="2"><button>수정</button> <button type="button" onclick="changeAction(this.form)">삭제</button></th>
 		</tr>
 	</table>
 </form>
+<script>
+function changeAction(frm){
+	frm.action='/car/car-delete';
+	frm.submit();
+}
+</script>
 </body>
 </html>
