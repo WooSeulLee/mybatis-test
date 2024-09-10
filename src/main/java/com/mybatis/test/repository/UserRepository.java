@@ -19,6 +19,12 @@ public class UserRepository {
 			return session.selectOne("UserMapper.selectUser", uiNum);
 		}
 	}
+
+	public UserVO selectUserForLogin(UserVO user) {
+		try(SqlSession session = SqlMybatisConfig.getSessionFactory().openSession()){
+			return session.selectOne("UserMapper.selectUserForLogin", user);
+		}
+	}
 	public int insertUser(UserVO user) {
 		try(SqlSession session = SqlMybatisConfig.getSessionFactory().openSession(true)){
 			return session.insert("UserMapper.insertUser", user);

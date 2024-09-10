@@ -12,7 +12,7 @@
 UserVO user = (UserVO) session.getAttribute("user");
 if(user!=null){
 %>
-<%=user.getUiId()%>님 안녕하세요
+<%=user.getUiName()%>님 안녕하세요.
 <%
 }else{
 %>

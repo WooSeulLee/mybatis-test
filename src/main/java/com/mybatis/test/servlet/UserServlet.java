@@ -95,13 +95,12 @@ public class UserServlet extends HttpServlet {
 		}else if("login".equals(cmd)) {
 			msg="아이디비밀번호를 확인해주세요";
 			uri = "/views/user/login";
-			HttpSession session = request.getSession();
-			if("test".equals(user.getUiId())) {
-				if("test".equals(user.getUiPwd())) {
-					msg = "test님 로그인에 성공하셨습니다.";
-					uri = "/";
-					session.setAttribute("user", user);
-				}
+			UserVO loginUser = us.login(user);
+			if(loginUser!=null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("user", loginUser);
+				msg = loginUser.getUiName() + "님 반갑습니다.";
+				uri = "/";
 			}
 		}
 		request.setAttribute("msg", msg);

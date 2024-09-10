@@ -21,6 +21,11 @@
 	<select id="selectUser" resultType="com.mybatis.test.vo.UserVO">
 		SELECT * FROM USER_INFO WHERE UI_NUM = #{uiNum}
 	</select>
+	
+	<select id="selectUserForLogin" resultType="com.mybatis.test.vo.UserVO">
+		SELECT * FROM USER_INFO WHERE UI_ID = #{uiId} AND UI_PWD=#{uiPwd}
+	</select>
+	
 	<insert id="insertUser"
 		parameterType="com.mybatis.test.vo.UserVO">
 		INSERT INTO user_info(
