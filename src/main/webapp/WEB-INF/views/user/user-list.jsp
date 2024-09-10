@@ -44,5 +44,6 @@ for(UserVO user:users){
 }
 %>
 </table>
+<a href="/views/user/user-insert">유저등록</a>
 </body>
 </html>

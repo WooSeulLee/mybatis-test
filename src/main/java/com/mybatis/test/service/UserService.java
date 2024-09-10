@@ -16,4 +16,17 @@ public class UserService {
 	public UserVO getUser(int uiNum) {
 		return ur.selectUser(uiNum);
 	}
+	
+	public int insertUser(UserVO user) {
+		return ur.insertUser(user);
+	}
+	
+	public int updateUser(UserVO user) {
+		return ur.updateUser(user);
+	}
+	
+	public int deleteUser(UserVO user) {
+		return ur.deleteUser(user);
+	}
 }
+
